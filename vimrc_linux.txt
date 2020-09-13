@@ -1,40 +1,57 @@
 " Colors {{{
-colorscheme elflord	    " colorscheme
-syntax enable		    " enable syntax processing
+colorscheme elflord             " colorscheme
+syntax enable                   " enable syntax processing
 " }}}
 
 " Spaces & Tabs {{{
-set tabstop=4		    " number of visual spaces per TAB
-set softtabstop=4	    " number of spaces in tab when editing
-set shiftwidth=4	    " number of spaces when indenting
-set expandtab		    " tabs are spaces
+set tabstop=4                   " number of visual spaces per TAB
+set softtabstop=4               " number of spaces in tab when editing
+set shiftwidth=4                " number of spaces when indenting
+set expandtab                   " tabs are spaces
 " }}}
 
 " UI Config {{{
-set number		    " show line numbers
-set showcmd		    " show command in bottom bar
-set cursorline              " highlight current line
-filetype indent on          " load filetype-specific indent files
-set wildmenu                " visual autocomplete for command menu
-set lazyredraw              " redraw only when we need to
-set showmatch               " highlight matching [{()}]
+set number                      " show line numbers
+set showcmd                     " show command in bottom bar
+filetype indent on              " load filetype-specific indent files
+set wildmenu                    " visual autocomplete for command menu
+set lazyredraw                  " redraw only when we need to
+set showmatch                   " highlight matching [{()}]
+" }}}
+
+" Powerline {{{
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+set laststatus=2
 " }}}
 
 " Searching {{{
-set incsearch               " search as characters are entered
-set hlsearch                " highlight matches
+set incsearch                   " search as characters are entered
+set hlsearch                    " highlight matches
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 " }}}
 
 " Folding {{{
-set foldenable              " enable folding
-set foldlevelstart=0        " close every fold by default
-set foldnestmax=10          " 10 nested fold max
+set foldenable                  " enable folding
+set foldlevelstart=0            " close every fold by default
+set foldnestmax=10              " 10 nested fold max
 " space opens/closes folds
 nnoremap <space> za
-set foldmethod=marker       " fold based on marker
-set modelines=1             " tell Vim to check final line of the file for a modeline
+set foldmethod=marker           " fold based on marker
+set modelines=1                 " tell Vim to check final line of the file for a modeline
+" }}}
+
+" Vim Plug {{{
+call plug#begin('~/.vim/plugged')
+
+" Automatic pairing of brackets, parentheses, and quotes
+Plug 'jiangmiao/auto-pairs'
+
+"Initialize plugin system
+call plug#end()
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
