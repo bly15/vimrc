@@ -50,6 +50,11 @@ call plug#begin('~/.vim/plugged')
 " Automatic pairing of brackets, parentheses, and quotes
 Plug 'jiangmiao/auto-pairs'
 
+" Format code with one button press (or automatically on save)
+Plug 'chiel92/vim-autoformat'
+" Remap the Autoformat feature to the F3 command
+noremap <F3> :Autoformat<CR>
+
 "Initialize plugin system
 call plug#end()
 " }}}
